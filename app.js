@@ -1,5 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
+var cookieSession = require('cookie-session');
 var passport = require("passport");
 var bodyParser = require("body-parser");
 var User = require("./models/user");
@@ -11,9 +12,13 @@ var app = express();
 mongoose.connect("mongodb://darshitsoni:darshitsoni@ds235877.mlab.com:35877/authstart");
 
 app.set('view engine', 'ejs');
-
+ 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(require("express-session")({
+app.use(cookieSession({
+    cookie:{
+    secure: true,
+    maxAge:60000
+       },
     secret: "hello there",
     resave: false,
     saveUninitialized: false
