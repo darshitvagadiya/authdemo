@@ -81,6 +81,6 @@ function isLoggedIn(req, res, next){
     res.redirect('/login');
 }
 
-app.listen(3000, function(){
-    console.log("server started....");
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
