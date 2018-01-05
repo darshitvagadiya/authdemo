@@ -8,7 +8,7 @@ var passportLocalMongoose = require("passport-local-mongoose");
 
 var app = express();
 
-mongoose.connect("mongodb://localhost/auth_demo_app");
+mongoose.connect("mongodb://darshitsoni:darshitsoni@ds235877.mlab.com:35877/authstart");
 
 app.set('view engine', 'ejs');
 
